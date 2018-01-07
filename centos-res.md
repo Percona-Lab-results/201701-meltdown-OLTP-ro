@@ -1,5 +1,25 @@
+# system
 
+## CPU
+2 x Intel(R) Xeon(R) CPU E5-2643 v2 @ 3.50GHz
+/proc/cpuinfo has 24 entries
 
+## motherboard
+Supermicro X10DRT-PT
+
+## CentOS 7.4
+* no-fix - kernel 3.10.0-514.6.1.el7.x86_64
+* fix - kernel 3.10.0-693.11.6.el7.x86_64 + microcode_ctl-2.1-22.2.el7.x86_64
+
+However, with the fix, I still have
+```
+# cat /sys/kernel/debug/x86/pti_enabled
+1
+# cat /sys/kernel/debug/x86/ibpb_enabled
+0
+# cat /sys/kernel/debug/x86/ibrs_enabled
+0
+```
 
 # in memory (buffer pool 200G)
 
@@ -39,3 +59,17 @@ Threads | no-fix | fix
   64  | 7982.03 | 7748.59 
   128 | 8493.85 | 8143.01 
   256 | 7574.23 | 8028.56 
+  
+# buffer pool 25G
+
+Threads | no-fix | fix 
+---------|--------|-----
+  1   | 286.93  | 298.57
+  2   | 559.91  | 591.30
+  4   | 1082.12 | 1140.77
+  8   | 2001.54 | 2052.33
+  16  | 3481.70 | 3540.24
+  64  | 6850.47 | 6672.06
+  128 | 7666.29 | 7418.86
+  256 | 7621.48 | 7510.59
+
