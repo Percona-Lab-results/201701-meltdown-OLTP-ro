@@ -23,6 +23,8 @@ However, with the fix, I still have
 # cat /sys/kernel/debug/x86/ibrs_enabled
 0
 ```
+The checker https://github.com/raphaelsc/Am-I-affected-by-Meltdown
+reports that the system with "no-fix" is affected and the system with "fix" IS NOT affected
 
 # Workload
 * sysbench 1.0.11 oltp_read_only
