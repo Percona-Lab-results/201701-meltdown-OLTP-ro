@@ -51,6 +51,7 @@ done
 
 
 # results
+* the results are in transactions per sec (more is better)
 
 # in memory (buffer pool 200G)
 
