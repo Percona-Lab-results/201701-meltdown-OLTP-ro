@@ -4,8 +4,8 @@
 * 2 x Intel(R) Xeon(R) CPU E5-2643 v2 @ 3.50GHz
 * /proc/cpuinfo has 24 entries
 
-## motherboard
-Supermicro X10DRT-PT
+## Server
+Supermicro SC825TQ-R740LPB 2U
 
 ## Storage
 * very fast PCIe Flash card
