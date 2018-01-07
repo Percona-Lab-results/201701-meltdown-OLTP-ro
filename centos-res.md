@@ -1,8 +1,8 @@
 # system
 
 ## CPU
-2 x Intel(R) Xeon(R) CPU E5-2643 v2 @ 3.50GHz
-/proc/cpuinfo has 24 entries
+* 2 x Intel(R) Xeon(R) CPU E5-2643 v2 @ 3.50GHz
+* /proc/cpuinfo has 24 entries
 
 ## motherboard
 Supermicro X10DRT-PT
@@ -20,6 +20,33 @@ However, with the fix, I still have
 # cat /sys/kernel/debug/x86/ibrs_enabled
 0
 ```
+
+# Workload
+* sysbench 1.0.11 oltp_read_only
+* 64 tables, 10mln rows each
+* datasize ~146GB
+
+# Server
+Percona-Server-5.7.20-19-Linux.x86_64 binary distribution
+
+# sysbench script
+```
+ulimit -n 100000
+HOST="--mysql-socket=/tmp/mysql.sock"
+sysbench oltp_read_only --tables=64 --table_size=10000000 --threads=100 $HOST --mysql-user=root --time=300 --max-requests=0 --report-interval=1 --rand-type=uniform --mysql-db=sbtest --mysql-ssl=off run | tee -a res.warmup.ro.txt
+OUT="res.ps57-inmem"
+DIR="res-OLTP/$OUT"
+mkdir -p $DIR
+for i in 1 2 4 8 16 64 128 256
+do
+time=300
+sysbench oltp_read_only --tables=64 --table_size=10000000 --threads=$i $HOST --mysql-user=root --time=$time --max-requests=0 --report-interval=1 --rand-type=uniform --mysql-db=sbtest --mysql-ssl=off run | tee -a $DIR/res.thr${i}.txt
+sleep 30
+done
+```
+
+
+# results
 
 # in memory (buffer pool 200G)
 
