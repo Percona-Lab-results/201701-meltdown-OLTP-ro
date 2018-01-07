@@ -7,6 +7,9 @@
 ## motherboard
 Supermicro X10DRT-PT
 
+## Storage
+* very fast PCIe Flash card
+
 ## CentOS 7.4
 * no-fix - kernel 3.10.0-514.6.1.el7.x86_64
 * fix - kernel 3.10.0-693.11.6.el7.x86_64 + microcode_ctl-2.1-22.2.el7.x86_64
@@ -27,7 +30,8 @@ However, with the fix, I still have
 * datasize ~146GB
 
 # Server
-Percona-Server-5.7.20-19-Linux.x86_64 binary distribution
+* Percona-Server-5.7.20-19-Linux.x86_64 binary distribution
+* config https://github.com/Percona-Lab-results/201701-meltdown-OLTP-ro/blob/master/my.cnf
 
 # sysbench script
 ```
