@@ -1,6 +1,7 @@
 
 
 
+# in memory (buffer pool 200G)
 
 | Threads | no-fix | fix |
 |---------|--------|-----|
