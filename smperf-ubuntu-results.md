@@ -36,20 +36,7 @@ reports that the system with "no-fix" is affected and the system with "fix" IS N
 * config https://github.com/Percona-Lab-results/201701-meltdown-OLTP-ro/blob/master/my.cnf
 
 # sysbench script
-```
-ulimit -n 100000
-HOST="--mysql-socket=/tmp/mysql.sock"
-sysbench oltp_read_only --tables=64 --table_size=10000000 --threads=100 $HOST --mysql-user=root --time=300 --max-requests=0 --report-interval=1 --rand-type=uniform --mysql-db=sbtest --mysql-ssl=off run | tee -a res.warmup.ro.txt
-OUT="res.ps57-inmem"
-DIR="res-OLTP/$OUT"
-mkdir -p $DIR
-for i in 1 2 4 8 16 64 128 256
-do
-time=300
-sysbench oltp_read_only --tables=64 --table_size=10000000 --threads=$i $HOST --mysql-user=root --time=$time --max-requests=0 --report-interval=1 --rand-type=uniform --mysql-db=sbtest --mysql-ssl=off run | tee -a $DIR/res.thr${i}.txt
-sleep 30
-done
-```
+https://github.com/Percona-Lab-results/201701-meltdown-OLTP-ro/blob/master/run_sysbench.sh
 
 
 # results
