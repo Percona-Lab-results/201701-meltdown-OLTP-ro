@@ -12,7 +12,7 @@ Supermicro SC825TQ-R740LPB 2U
 
 ## Ubuntu 16.04
 * no-fix - kernel  4.4.0-104-generic
-* fix - kernel 
+* fix - kernel 4.4.0-108-generic
 
 However, with the fix, I still have
 ```
