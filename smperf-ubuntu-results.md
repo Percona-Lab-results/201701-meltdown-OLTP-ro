@@ -17,11 +17,14 @@ Supermicro SC825TQ-R740LPB 2U
 However, with the fix, I still have
 ```
 # cat /sys/kernel/debug/x86/pti_enabled
-1
-# cat /sys/kernel/debug/x86/ibpb_enabled
-0
-# cat /sys/kernel/debug/x86/ibrs_enabled
-0
+cat: /sys/kernel/debug/x86/pti_enabled: No such file or directory
+root@sm-perf01:~# cat /sys/kernel/debug/x86/ibpb_enabled
+cat: /sys/kernel/debug/x86/ibpb_enabled: No such file or directory
+root@sm-perf01:~# mount -t debugfs none /sys/kernel/debug/
+mount: none is already mounted or /sys/kernel/debug busy
+root@sm-perf01:~# cat /sys/kernel/debug/x86/ibrs_enabled
+cat: /sys/kernel/debug/x86/ibrs_enabled: No such file or directory
+
 ```
 The checker https://github.com/raphaelsc/Am-I-affected-by-Meltdown
 reports that the system with "no-fix" is affected and the system with "fix" IS NOT affected
