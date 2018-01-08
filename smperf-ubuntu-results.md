@@ -1,7 +1,7 @@
 # system
 
 ## CPU
-* 2 x Intel(R) Xeon(R) CPU E5-2680 v3 @ 2.50GHz
+* 2 x Intel(R) Xeon(R) CPU E5-2680 v3 @ 2.50GHz (Codename Haswell)
 * /proc/cpuinfo has 48 entries
 
 ## Server
