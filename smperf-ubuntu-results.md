@@ -5,7 +5,7 @@
 * /proc/cpuinfo has 48 entries
 
 ## Server
-Supermicro SC825TQ-R740LPB 2U
+Supermicro Motherboard X10DRI
 
 ## Storage
 * NVMi Intel DC 36000 
